@@ -1,5 +1,7 @@
 package com.ioc.demo.test;
 
+import com.bean.MyBean;
+import com.bean.MyFactoryBean;
 import com.ioc.wang.BookService;
 import com.ioc.wang.Config;
 import com.ioc.demo.Book;
@@ -50,4 +52,16 @@ public class TestSpring5 {
         System.out.println(bookService);
         bookService.addBook();
     }
+
+    @Test
+    public void testFactoryBean() throws Exception {
+        ApplicationContext context = new ClassPathXmlApplicationContext("factory_beans.xml");
+        MyFactoryBean myFactoryBean = context.getBean("&myBean", MyFactoryBean.class);
+        MyBean myBean = context.getBean("myBean", MyBean.class);
+
+        System.out.println(myFactoryBean.getObject());
+        System.out.println(myFactoryBean.getObject());
+        System.out.println(myBean);
+    }
+
 }

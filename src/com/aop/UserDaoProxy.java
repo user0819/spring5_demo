@@ -14,7 +14,7 @@ public class UserDaoProxy {
     //前置通知
     @Before(value = "pointcut()")
     public void before(){
-        System.out.println("前置通知...");
+        System.out.println("before...");
     }
 
     //在方法执行之后,无论方法是否正常完成（finally）
